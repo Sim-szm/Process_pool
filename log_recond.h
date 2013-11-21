@@ -14,6 +14,7 @@
 #define MAX_MESSAGE 256
 #define ERROR_MODE_TYPE 1
 #define SYSTEM_MODE_TYPE 0
+
 char LOG_PATH[]="./";
 typedef struct {
 	int fd;
@@ -39,13 +40,13 @@ int Create_Log(int log_type,char *filename,LOG_TYPE *log_recond){
 	if(log_type==1) {
 	  log_recond->error_log.fd=fd;
 	  pthread_mutex_init(&log_recond->error_log.log_locker,NULL);	
-	  fprintf(stderr,"error_Logfile created\n");
+	  fprintf(stderr,"error_Logfile created\r\n");
 	  close(log_recond->error_log.fd);
        	}
 	if(log_type==0){
 		log_recond->system_log.fd=fd;
 		pthread_mutex_init(&log_recond->system_log.log_locker,NULL);
-		fprintf(stderr,"system_logfile created\n");
+		fprintf(stderr,"system_logfile created\r\n");
 		close(log_recond->system_log.fd);
 	}
 	return 0;
