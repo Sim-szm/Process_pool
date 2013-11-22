@@ -43,7 +43,7 @@ int main( int argc, char *argv[] ){
 		else if(ret>0)
 		      printf("recv msg from server : \n%s",RECV_BUF);
 		memset(SEND_BUF,'\0',2048);
-		printf("\nwait for command >> ");
+		printf("\nwait for sql_query command >> ");
 		fgets(SEND_BUF,2048,stdin);
 	}
 	close(sockfd);
