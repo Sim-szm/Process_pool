@@ -19,8 +19,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-#include <openssl/ssl.h>
-#include <openssl/err.h>
 #include <fcntl.h>
 #define PORT 9527
 int main( int argc, char *argv[] ){
