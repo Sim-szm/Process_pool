@@ -43,11 +43,14 @@ void work::Interface_For_Mysql(char *search_line){
     	}
     	if ( mysql_set_character_set(conn, "utf8" ) ) {
 		std::cout<< mysql_error(conn)<<std::endl;
+		return;
     	}
-    	if (mysql_query(conn, search_line)) {
-		std::cout<< mysql_error(conn)<<std::endl;
-        	return;
-    	}
+	if(search_line!=NULL){
+    		if(!mysql_query(conn, search_line)){}
+		else
+		      return;
+    	}else
+	      return;
 	res = mysql_use_result(conn);
     	while ((row = mysql_fetch_row(res))!=NULL){
 		for(int t=0;t<mysql_num_fields(res);t++){
