@@ -16,17 +16,17 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#define buf_size 256 
-#define BUFF 22
+#define buf_size 2048
+#define BUFF 2048
 class work{
 public:
 	void init(int sockfd,struct sockaddr_in client_address);
 	int process();
+	void Interface_For_Mysql(char *search_line);
 private:
 	char user_buffer[buf_size];
 	char msg[BUFF];
 	int connfd;
 	struct sockaddr_in address;
 };
-
 #endif

@@ -3,9 +3,9 @@ all: init_socket.o work.o server
 init_socket.o: init_socket.cpp init_socket.h
 	g++ -c init_socket.cpp -o init_socket.o
 work.o: work.cpp work.h
-	g++ -c work.cpp -o work.o
+	g++ -c work.cpp -o work.o -I /usr/include/mysql/
 server: main.cpp process_pool.h init_socket.o work.o
-	g++ process_pool.h init_socket.o work.o main.cpp -o server
+	g++ process_pool.h init_socket.o work.o main.cpp -o server -lmysqlclient -lm -g
 clean:
 	rm *.o server stress_test
 .client: client
