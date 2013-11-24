@@ -45,8 +45,13 @@ int main( int argc, char *argv[] ){
 		memset(SEND_BUF,'\0',2048);
 		printf("\nwait for sql_query command >> ");
 		fgets(SEND_BUF,2048,stdin);
+		if(strncasecmp(SEND_BUF,"quit",4)==0){
+			printf("thanks for use !\n Bye !\n");
+			break;
+		}
 	}
 	close(sockfd);
+	return 0;
 }
 
 
